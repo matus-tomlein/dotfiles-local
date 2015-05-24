@@ -3,7 +3,7 @@ dotfiles-local
 
 These are my additional dotfiles built on top of
 [thoughtbot/dotfiles](https://github.com/thoughtbot/dotfiles).
-They will only work if the thoughtbot are installed.
+They will only work if the thoughtbot ones are installed.
 
 # Installation
 
