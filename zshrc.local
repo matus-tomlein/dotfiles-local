@@ -23,3 +23,29 @@ function ssht() {
 alias deploy='dandelion deploy && say -v Zarvox "deee ploid"'
 
 eval "$(rbenv init - --no-rehash)"
+
+[[ -f ~/.zshrc.local.local ]] && source ~/.zshrc.local.local
+
+# load tag aliases: https://github.com/aykamko/tag
+if (( $+commands[tag] )); then
+  tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
+  alias ag=tag
+fi
+
+man() {
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
+}
+
+# jj to enter normal mode
+bindkey jj vi-cmd-mode
+
+EDITOR=nvim
+VISUAL=mate

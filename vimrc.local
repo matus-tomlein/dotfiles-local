@@ -1,10 +1,18 @@
 scriptencoding utf-8
 set encoding=utf-8
 
+" vimwiki
+set nocompatible
+filetype plugin on
+nmap <C-[> <Plug>VimwikiGoBackLink
+nmap <C-Enter> <Plug>VimwikiVSplitLink
+nmap <S-Enter> <Plug>VimwikiSplitLink
+
 let maplocalleader = ","
 
 " Automatically wrap at 80 characters for Markdown and Latex
 autocmd BufRead,BufNewFile *.md,*.tex setlocal textwidth=85
+autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
 
 " Remap Snipmate
 imap <C-J> <Plug>snipMateNextOrTrigger
@@ -27,6 +35,9 @@ set secure
 set guioptions-=r
 set guioptions-=L
 
+" format JSON
+map <Leader>j !python -m json.tool<CR>
+
 " Highlight current line in insert mode
 autocmd InsertEnter,InsertLeave * set cul!
 
@@ -36,7 +47,7 @@ cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 nnoremap <Leader>g :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+" command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap <Leader>/ :Ag<SPACE>
 
 " folder explore
@@ -79,11 +90,6 @@ nmap <Leader>d :redraw!<CR>
 "enable mouse control
 set mouse=a
 
-" NERDTree
-map <C-n> :NERDTreeToggle<CR>
-map <C-b> :NERDTreeFind<CR>
-
-
 " Accept fat-fingering the :wq and similar
 if has("user_commands")
   command! -bang -nargs=? -complete=file E e<bang> <args>
@@ -96,3 +102,24 @@ if has("user_commands")
   command! -bang QA qa<bang>
   command! -bang Qa qa<bang>
 endif
+
+" Soft wrap words for text files
+autocmd BufRead,BufNewFile *.md,*.tex,*.txt set linebreak nolist
+
+" otherwise switching panes left with Ctrl H didn't work
+if has('nvim')
+  nmap <BS> <C-w>h
+endif
+
+" Bigger font in MacVim
+set guifont=Monaco:h13
+
+" Use ESLint in Syntastic
+let g:syntastic_javascript_checkers = ['eslint']
+
+" highlight last inserted text
+nnoremap gV `[v`]
+
+set t_Co=256   " This is may or may not needed.
+
+set background=light
