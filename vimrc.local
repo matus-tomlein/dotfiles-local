@@ -4,9 +4,9 @@ set encoding=utf-8
 " vimwiki
 set nocompatible
 filetype plugin on
-nmap <C-[> <Plug>VimwikiGoBackLink
-nmap <C-Enter> <Plug>VimwikiVSplitLink
-nmap <S-Enter> <Plug>VimwikiSplitLink
+" nmap <C-[> <Plug>VimwikiGoBackLink
+" nmap <C-Enter> <Plug>VimwikiVSplitLink
+" nmap <S-Enter> <Plug>VimwikiSplitLink
 
 let maplocalleader = ","
 
@@ -63,8 +63,6 @@ nmap <Leader>a ggVG
 
 " reload file
 nmap <Leader>r :e!<CR>
-
-map! jj <ESC>
 
 " tabs
 nmap <Leader>1 1gt
@@ -123,3 +121,22 @@ nnoremap gV `[v`]
 set t_Co=256   " This is may or may not needed.
 
 set background=light
+
+" folding
+set foldmethod=syntax
+set foldlevelstart=1
+
+let javaScript_fold=1         " JavaScript
+let perl_fold=1               " Perl
+let php_folding=1             " PHP
+let r_syntax_folding=1        " R
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
+" let g:Latexbox_Folding=1
+
+" exiting terminal mode in nvim
+tnoremap <Esc> <C-\><C-n>
+
+map! jj <ESC>
