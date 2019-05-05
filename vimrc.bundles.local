@@ -2,30 +2,18 @@ Plug 'danro/rename.vim'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-ragtag'
+Plug 'vim-vdebug/vdebug'
+Plug 'StanAngeloff/php.vim'
 
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'henrik/vim-indexed-search'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ntpeters/vim-better-whitespace'
-" Plug 'derekwyatt/vim-scala'
+Plug 'derekwyatt/vim-scala'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'junegunn/goyo.vim'
 Plug 'bling/vim-airline'
 Plug 'chemzqm/vim-jsx-improve'
 " Plug 'jvirtanen/vim-octave'
-Plug 'niklasl/vim-rdf'
-Plug 'vimwiki/vimwiki'
 Plug 'terryma/vim-multiple-cursors'
 " Plug 'abaldwin88/roamer.vim'
 Plug 'editorconfig/editorconfig-vim'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
+Plug 'vim-scripts/indentpython.vim'

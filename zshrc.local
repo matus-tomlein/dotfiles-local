@@ -22,8 +22,6 @@ function ssht() {
 
 alias deploy='dandelion deploy && say -v Zarvox "deee ploid"'
 
-eval "$(rbenv init - --no-rehash)"
-
 [[ -f ~/.zshrc.local.local ]] && source ~/.zshrc.local.local
 
 # load tag aliases: https://github.com/aykamko/tag
@@ -55,3 +53,5 @@ export LANG=en_US.UTF-8
 
 # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # source /usr/local/bin/activate.sh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

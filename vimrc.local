@@ -29,6 +29,7 @@ set relativenumber
 set hlsearch
 nmap <Leader>h :nohlsearch<CR>
 set ignorecase
+set smartcase
 
 set exrc
 set secure
@@ -77,7 +78,7 @@ nmap <Leader>9 9gt
 nmap <Leader>t :tabe<CR>
 
 " ctrlp
-nmap <Leader>p :CtrlPMixed<CR>
+" nmap <Leader>p :CtrlPMixed<CR>
 let g:ctrlp_root_markers = ['.ctrlp']
 
 " shorter timeout because of waiting after pressing ESC
@@ -141,3 +142,14 @@ set background=light
 tnoremap <Esc> <C-\><C-n>
 
 map! jj <ESC>
+
+let g:ctrlp_working_path_mode = 0
+set exrc
+
+nmap <Leader>p :set ft=html<CR>:set syn=php<CR>
+
+" disable line break
+set formatoptions-=tc
+
+let g:python2_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
